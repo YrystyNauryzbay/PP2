@@ -1,8 +1,8 @@
 class String:
     def getstring(self):
-        self.sentence=input("Sentense:")
+        self.sentence=input("Enter a string:")
     def printstring(self):
-        print("With upper case:"+self.sentence.upper())
+        print(self.sentence.upper())
         
 mystring=String()
 mystring.getstring()

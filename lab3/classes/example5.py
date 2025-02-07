@@ -1,31 +1,29 @@
-class Bank():
-    def __init__(self, account, money):
-        self.money = money
-        self.account = account
-
-    def balance(self):
-        return self.money
-    
-    def owner(self):
-        return self.account
+class Account:
+    def __init__(self, owner, balance):
+        self.owner = owner
+        self.balance = balance
     
     def deposit(self, money):
-        self.money+=money
-
-        return f"You are deposit {money} money"
-    
+            self.balance += money
+            return f"You deposited {money}. New balance: {self.balance}"
+       
     def withdraw(self, money):
-        if self.money - money < 0:
-            return "insufficient funds"
+        if money <= 0:
+            return "Withdrawal amount must be greater than zero!"
+        if self.balance < money:
+            return "Insufficient funds!"
         else:
-            self.money-=money
+            self.balance -= money
+            return f"You withdrew {money}. New balance: {self.balance}"
 
-            return f"you're balance: {self.money},  and you take {money}"
-        
-        
-bank = Bank("Yrysty", 10000)
-print(bank.balance())
-print(bank.owner())
-print(bank.deposit(2500))
-print(bank.withdraw(3000))
-print(bank.withdraw(2000))
+    def show_balance(self):
+        return f"Owner: {self.owner}, Balance: {self.balance}"
+
+bank = Account("Yrysty", 10000)
+print(bank.show_balance())
+print(bank.deposit(2500))  
+print(bank.withdraw(3000))  
+print(bank.withdraw(2000))  
+print(bank.withdraw(15000)) 
+print(bank.withdraw(-500))  
+
