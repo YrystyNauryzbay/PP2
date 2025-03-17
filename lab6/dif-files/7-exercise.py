@@ -6,7 +6,7 @@ def copy_file(source):
         print("File does not exist.")
         return
 
-    dest = source.replace('.', '_copy.', 1)  # Adds "_copy" before the extension
+    dest = source.replace('.', '_copy.', 1)  
     shutil.copy(source, dest)
     print(f"Copied {source} to {dest}")
 

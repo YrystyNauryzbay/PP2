@@ -1,5 +1,9 @@
-def write_list_to_file(filename, elements):
-    with open(filename, 'a') as f:
-        f.write(" ".join(map(str, elements)) + "\n")
+def writesome(list_of_elements):
+    with open("sometext.txt", '+a') as f:
+        text = "\n"
+        for i in list_of_elements:
+            text += str(i) + ' '
+        f.write(text)
+        f.close()
 
-write_list_to_file("sometext.txt", [12345, 56789, 90987654, "dfghjkl", "efrgf", 34, 34])
+writesome([12345, 56789, 90987654, "dfghjkl","efrgf",34,34])
